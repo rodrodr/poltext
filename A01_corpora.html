@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Análisis de textos políticos con R - 10&nbsp; Corpora - Textos empleados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A02_preprocesa.html" rel="next">
+<link href="./08_positio_politicas.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A01_corpora.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A01_corpora.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Análisis de textos políticos con R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Parte I - Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_explora_inductivo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploración <span style="color:purple;"><b>inductiva</b></span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_explora_deductivo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploración <span style="color:green;"><b>deductiva</b></span> y <span style="color:blue;"><b>abductiva</b></span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_analisis_sintactico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Análisis sintáctico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_redes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">De textos a redes de política</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Parte II - Clasificación y Posicionamiento</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_clasificacion_tematica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clasificación temática</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_clasificacion_textos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clasificación de textos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_positio_ideologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La ideología de los textos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_positio_politicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Posiciones sobre políticas públicas</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A01_corpora.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A02_preprocesa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A03_dialogos_redes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1"><h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+<li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">10.1</span> Introducción</a></li>
+  <li>
+<a href="#discursos-de-investidura" id="toc-discursos-de-investidura" class="nav-link" data-scroll-target="#discursos-de-investidura"><span class="header-section-number">10.2</span> Discursos de investidura</a>
+  <ul>
+<li><a href="#definici%C3%B3n" id="toc-definición" class="nav-link" data-scroll-target="#definici%C3%B3n"><span class="header-section-number">10.2.1</span> Definición</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">10.2.2</span> Usos</a></li>
+  <li><a href="#corpus-espa%C3%B1a" id="toc-corpus-españa" class="nav-link" data-scroll-target="#corpus-espa%C3%B1a"><span class="header-section-number">10.2.3</span> Corpus: España</a></li>
+  <li><a href="#corpus-brasil" id="toc-corpus-brasil" class="nav-link" data-scroll-target="#corpus-brasil"><span class="header-section-number">10.2.4</span> Corpus: Brasil</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#diarios-de-sesiones-parlamentarias" id="toc-diarios-de-sesiones-parlamentarias" class="nav-link" data-scroll-target="#diarios-de-sesiones-parlamentarias"><span class="header-section-number">10.3</span> Diarios de sesiones parlamentarias</a>
+  <ul>
+<li><a href="#definici%C3%B3n-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definici%C3%B3n-1"><span class="header-section-number">10.3.1</span> Definición</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">10.3.2</span> Usos</a></li>
+  <li><a href="#corpus-espa%C3%B1a-1" id="toc-corpus-españa-1" class="nav-link" data-scroll-target="#corpus-espa%C3%B1a-1"><span class="header-section-number">10.3.3</span> Corpus: España</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#debates-electorales" id="toc-debates-electorales" class="nav-link" data-scroll-target="#debates-electorales"><span class="header-section-number">10.4</span> Debates electorales</a>
+  <ul>
+<li><a href="#definici%C3%B3n-2" id="toc-definición-2" class="nav-link" data-scroll-target="#definici%C3%B3n-2"><span class="header-section-number">10.4.1</span> Definición</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">10.4.2</span> Usos</a></li>
+  <li><a href="#corpus-brasil-1" id="toc-corpus-brasil-1" class="nav-link" data-scroll-target="#corpus-brasil-1"><span class="header-section-number">10.4.3</span> Corpus: Brasil</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#decretos-presidenciales" id="toc-decretos-presidenciales" class="nav-link" data-scroll-target="#decretos-presidenciales"><span class="header-section-number">10.5</span> Decretos presidenciales</a>
+  <ul>
+<li><a href="#definici%C3%B3n-3" id="toc-definición-3" class="nav-link" data-scroll-target="#definici%C3%B3n-3"><span class="header-section-number">10.5.1</span> Definición</a></li>
+  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3"><span class="header-section-number">10.5.2</span> Usos</a></li>
+  <li><a href="#corpus-paraguay" id="toc-corpus-paraguay" class="nav-link" data-scroll-target="#corpus-paraguay"><span class="header-section-number">10.5.3</span> Corpus: Paraguay</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="introducción" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="introducción">
+<span class="header-section-number">10.1</span> Introducción</h2>
+<p>Los textos que interesan al análisis político poseen una enorme variedad en su formato. En algunos casos, nos encontramos ante textos legales (constituciones, leyes, propuestas legislativas o decretos). En otros, discursos o mensajes cortos en plataformas de <em>microblogging</em> (Twitter o Facebook), correos electrónicos (como los del escándalo de Enron o de Hillary Clinton, por ejemplo), manifiestos de partidos, diarios de sesiones parlamentarias, entrevistas, grupos focales o debates electorales.</p>
+<p>Por esa razón, he decidido incorporar al paquete <em>tenet</em> una variedad de textos políticos que pudiera permitir trabajar con diferentes formatos y técnicas de análisis de textos. En este apéndice, describimos con más detalle cada uno de esos corpus tanto para que los lectores tengan una idea de qué fuentes de información se emplean en los ejemplos como sus principales usos en el libro. En su mayoría, se encuentran en español. No obstante, también se han incorporado algunas referencias en portugués.</p>
+</section><section id="discursos-de-investidura" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="discursos-de-investidura">
+<span class="header-section-number">10.2</span> Discursos de investidura</h2>
+<section id="definición" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="definición">
+<span class="header-section-number">10.2.1</span> Definición</h3>
+<p>Los discursos de investidura corresponden a mensajes, generalmente orales, proferidos por los presidentes de gobierno en el momento en que asumen el cargo. Puesto que se tratan de monólogos, no existe debate, solo interviene el presidente. Los receptores suelen ser los diputados o parlamentarios. Por esa razón, representan un programa de gobierno (más que electoral), buscan marcar las líneas generales de la futura administración y señalan los diagnósticos sobre los principales problemas a enfrentar por parte del ganador. Poseen, además, una extensión media, aunque con variaciones perceptibles entre distintos presidentes. Algunos son muy locuaces, mientras que otros adoptan un estilo más escueto. No son tan cortos como los <em>tweets</em> o correos electrónicos, pero tampoco corresponden a documentos más extensos como libros o informes largos.</p>
+</section><section id="usos" class="level3" data-number="10.2.2"><h3 data-number="10.2.2" class="anchored" data-anchor-id="usos">
+<span class="header-section-number">10.2.2</span> Usos</h3>
+<p>¿Para qué y cómo se emplean los discursos de investidura en análisis textual? La gran cantidad de textos que emplean esta fuente de información revela un interés por identificar rasgos como ideología, programas o posiciones políticas, el efecto de la religión, seguridad nacional, entre otros muchos temas.</p>
+<p>En los ejemplos, hemos empleado los discursos inaugurales como fuente para la codificación y el análisis temático…</p>
+</section><section id="corpus-españa" class="level3" data-number="10.2.3"><h3 data-number="10.2.3" class="anchored" data-anchor-id="corpus-españa">
+<span class="header-section-number">10.2.3</span> Corpus: España</h3>
+<p>La base de datos <em>spa.inaugural</em> contiene el conjunto de discursos de investidura de los presidentes de gobierno de España entre 1979 y 2019. La fuente es la Moncloa. Se encuentra en formato <em>data.frame</em> y contiene las siguientes variables:</p>
+<p><strong>doc_id</strong></p>
+<p>Nombre del documento con el discurso de investidura.</p>
+<p><strong>text</strong></p>
+<p>Texto integral del discurso.</p>
+<p><strong>President</strong></p>
+<p>Nombre del Presidente.</p>
+<p><strong>Legislature</strong></p>
+<p>Número de la legislatura a la que pertenece el discurso.</p>
+</section><section id="corpus-brasil" class="level3" data-number="10.2.4"><h3 data-number="10.2.4" class="anchored" data-anchor-id="corpus-brasil">
+<span class="header-section-number">10.2.4</span> Corpus: Brasil</h3>
+<p>Los discursos de investidura brasileños se encuentran en la base <em>bra.inaugural</em>. Se trata de un objeto corpus (del paquete quanteda) conteniendo todos los discursos de investidura de los presidentes brasileños desde 1889 hasta 2023. La principal fuente ha sido la biblioteca de la Presidencia de la República y el libro de João Bonfim <span class="citation" data-cites="bonfim2004">(<a href="references.html#ref-bonfim2004" role="doc-biblioref">2004</a>)</span>, <em>Palavra de Presidente</em>.</p>
+<p><strong>Text</strong></p>
+<p>Identificador del documento.</p>
+<p><strong>Types</strong></p>
+<p>Número de palabras únicas en el texto.</p>
+<p><strong>Tokens</strong></p>
+<p>Número total de palabras.</p>
+<p><strong>Sentences</strong></p>
+<p>Número de frases en el discurso.</p>
+<p><strong>Year</strong></p>
+<p>Año en el cual el discurso ha sido proferido.</p>
+<p><strong>President</strong></p>
+<p>Nombre del presidente que ha dado el discurso.</p>
+<p><strong>Date</strong></p>
+<p>Fecha del discurso</p>
+<p><strong>Military</strong></p>
+<p>Binario. Indica si el presidente ha pertenecido a las Fuerzas Armadas.</p>
+<p><strong>Party</strong></p>
+<p>Partido del presidente.</p>
+<p><strong>Interrupted</strong></p>
+<p>Binario. Indica si el mandato del presidente ha sido interrumpido.</p>
+<p><strong>Interrupt.Cause</strong></p>
+<p>Causa de la interrupción del mandato (en caso positivo).</p>
+<p><strong>Elected</strong></p>
+<p>Binario. Indica si el presidente ha sido elegido o si ha ocupado la posición por otros medios (golpe de Estado, elección indirecta, muerte o impedimiento del titular).</p>
+<p><strong>link_photo</strong></p>
+<p>Enlace para la foto oficial del presidente.</p>
+</section></section><section id="diarios-de-sesiones-parlamentarias" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="diarios-de-sesiones-parlamentarias">
+<span class="header-section-number">10.3</span> Diarios de sesiones parlamentarias</h2>
+<section id="definición-1" class="level3" data-number="10.3.1"><h3 data-number="10.3.1" class="anchored" data-anchor-id="definición-1">
+<span class="header-section-number">10.3.1</span> Definición</h3>
+<p>Los diarios de las sesiones parlamentarias constituye otra fuente fundamental para entender los diferentes posicionamientos políticos. Contiene todos los debates, preguntas, requerimientos e intervenciones de los diputados. Cubren las posiciones de los miembros del gobierno y de la oposición no solo en la tramitación de leyes, sino también en las funciones de control de las acciones del ejecutivo. Además, revela el posicionamiento de cada legislador en la votación de temas cruciales para la ciudadanía. Se conforma como una fuente no solo de opinión, sino de posicionamiento político concreto. Al organizarse de forma cronológica, permiten, además, acompañar los ciclos y la evolución de los temas en debate y reconstruir la agenda legislativa del gobierno, por ejemplo.</p>
+</section><section id="usos-1" class="level3" data-number="10.3.2"><h3 data-number="10.3.2" class="anchored" data-anchor-id="usos-1">
+<span class="header-section-number">10.3.2</span> Usos</h3>
+<p>Se emplean para medir emotividad, polarización, posiciones ideológicas, cohesión partidaria, diferencias de género en las intervenciones, entre otros usos.</p>
+</section><section id="corpus-españa-1" class="level3" data-number="10.3.3"><h3 data-number="10.3.3" class="anchored" data-anchor-id="corpus-españa-1">
+<span class="header-section-number">10.3.3</span> Corpus: España</h3>
+<p>La base de datos <em>spa.sessions</em> contiene todas las intervenciones de los diputados registrados en los diarios de sesiones de la XIV Legislatura del Congreso de Diputados de España (entre diciembre de 2019 y junio de 2023). Los datos han sido tratados para incluir un conjunto de metadatos que ayudan a identificar el partido, si ocupaba algún cargo en el gobierno, el distrito electoral.</p>
+<p><strong>leg.number</strong></p>
+<p>Número de la legislatura. En esta base de datos será siempre 14.</p>
+<p><strong>session.date</strong></p>
+<p>Fecha de la sesión legislativa en formato YYYY-MM-DD.</p>
+<p><strong>session.type</strong></p>
+<p>Tipo de sesión: “Plenaria” o “Diputación Permanente”.</p>
+<p><strong>session.number</strong></p>
+<p>Número de la sesión. Secuencial de acuerdo con el tipo.</p>
+<p><strong>issue.type</strong></p>
+<p>Tema de la intervención. Determina el contexto más general en el que se sitúa el habla del diputado:</p>
+<ul>
+<li><p>Avocación: solicitud de aprobación legislativa sin debate previo.</p></li>
+<li><p>Comisión: intervención sobre el trabajo de las comisiones parlamentarias.</p></li>
+<li><p>Comparecencia: debate en torno a la comparecencia del Presidente de Gobierno u otros miembros del ejecutivo.</p></li>
+<li><p>Comunicación: informes generales sobre un tema concreto.</p></li>
+<li><p>Convalidación o derogación: debates acerca del proceso legislativo.</p></li>
+<li><p>Debate: preguntas y respuestas de diputados. Suele ser el espacio con mayor conflictividad entre los representantes. Excluye los debates de investidura, que poseen una categoría propia.</p></li>
+<li><p>Enmiendas del senado: discusión sobre las enmiendas del senado.</p></li>
+<li><p>Estado de alarma: este tópico resulta muy especial, puesto que la pandemia de COVID-19 ha tenido lugar durante esta legislatura y el Estado de alarma ha sido el instrumento elegido por el gobierno para atajar el problema.</p></li>
+<li><p>Interpelaciones: Requerimiento de informaciones a los miembros del gobierno o de la mesa del Congreso por parte de un representante.</p></li>
+<li><p>Investidura: Discurso, debate y votación de la investidura del Presidente de Gobierno.</p></li>
+<li><p>Moción de censura: debate alrededor de una moción de censura al Presidente.</p></li>
+<li><p>Otros: otros temas.</p></li>
+<li><p>Petición: solicitud de un representante a la mesa.</p></li>
+<li><p>Preguntas: preguntas de los diputados.</p></li>
+<li><p>Proposiciones no ley: Propuestas de resolución por parte de los grupos parlamentarios sin la participación necesaria de miembros del gobierno.</p></li>
+<li><p>Toma en consideración: decisión de seguir adelante con la tramitación de una propuesta legislativa.</p></li>
+<li><p>Tramitación: proceso de procesamiento y debate de las propuestas de ley en el Congreso.</p></li>
+<li><p>Votación: debates e intervenciones realizadas durante la votación.</p></li>
+</ul>
+<p><strong>issue.details</strong></p>
+<p>Detalle sobre el tópico. Tema del debate, pregunta concreta, entre otros.</p>
+<p><strong>speech.order</strong></p>
+<p>Orden de la intervención en la sesión.</p>
+<p><strong>speech.text</strong></p>
+<p>Texto completo de la intervención.</p>
+<p><strong>rep.name</strong></p>
+<p>Nombre del representante.</p>
+<p><strong>rep.district</strong></p>
+<p>Distrito electoral por el cual ha sido elegido.</p>
+<p><strong>rep.party</strong></p>
+<p>Partido político o coalición electoral a la que pertenece el representante.</p>
+<p><strong>rep.group</strong></p>
+<p>Grupo parlamentario del representante.</p>
+<p><strong>rep.condition</strong></p>
+<p>Define cuál es la condición del representante en el momento de su intervención: Candidato (a presidente de gobierno), Diputado, Miembro de la mesa, Ministro, Otros o Presidente.</p>
+<p><strong>rep.institution</strong></p>
+<p>Entidad concreta a la que se encuentra vinculado el representante: Presidencia, alguno de los ministerios, o al Congreso de Diputados.</p>
+<p><strong>speech.tokens</strong></p>
+<p>Total de palabras de la intervención.</p>
+</section></section><section id="debates-electorales" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="debates-electorales">
+<span class="header-section-number">10.4</span> Debates electorales</h2>
+<section id="definición-2" class="level3" data-number="10.4.1"><h3 data-number="10.4.1" class="anchored" data-anchor-id="definición-2">
+<span class="header-section-number">10.4.1</span> Definición</h3>
+<p>Los debates electorales televisionados constituyen uno de los eventos más destacados de las campañas políticas, especialmente para las disputas presidenciales o para el ejecutivo. Aunque varíen mucho de formato en cada país, representan una fuente importante de información sobre las posiciones de los distintos candidatos y sus programas políticos. Además, permiten identificar conflictos, la centralidad de ciertos candidatos con relación a otros, así como rastrean los temas que aparecen en el debate público en distintos momentos del tiempo.</p>
+</section><section id="usos-2" class="level3" data-number="10.4.2"><h3 data-number="10.4.2" class="anchored" data-anchor-id="usos-2">
+<span class="header-section-number">10.4.2</span> Usos</h3>
+<p>Los debates se pueden emplear para trazar los programas políticos de los candidatos, los temas centrales de movilización, las estrategias retóricas frente a los opositores y el abanico de promesas hacia el futuro.</p>
+</section><section id="corpus-brasil-1" class="level3" data-number="10.4.3"><h3 data-number="10.4.3" class="anchored" data-anchor-id="corpus-brasil-1">
+<span class="header-section-number">10.4.3</span> Corpus: Brasil</h3>
+<p>La base de datos <em>bra.debate</em> contiene los debates televisionados entre los candidatos a la Presidencia de la República en Brasil.</p>
+</section></section><section id="decretos-presidenciales" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="decretos-presidenciales">
+<span class="header-section-number">10.5</span> Decretos presidenciales</h2>
+<section id="definición-3" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="definición-3">
+<span class="header-section-number">10.5.1</span> Definición</h3>
+<p>La actividad legislativa representa otro tipo de texto político que interesa a los investigadores. Los decretos presidenciales o ejecutivos aún más, puesto que revelan la intención del gobierno de asumir funciones que típicamente se restringen al poder legislativo. En algunas democracias, los presidentes intentan centralizar poder por medio del abuso de medidas ejecutivas. De un lado, intentan asumir la función legislativa del Estado, reduciendo el espacio que los legisladores deberían ocupar. De otro, concentran la decisión del mismo ejecutivo en la figura del presidente, relegando a los ministros y otros órganos burocráticos a un segundo plano. El análisis de tales textos, por lo tanto, permite entender cómo funcionan los proceso deliberativos al interior del Estado.</p>
+</section><section id="usos-3" class="level3" data-number="10.5.2"><h3 data-number="10.5.2" class="anchored" data-anchor-id="usos-3">
+<span class="header-section-number">10.5.2</span> Usos</h3>
+<p>Como hemos mencionado anteriormente, los decretos presidenciales pueden utilizarse para identificar la amplitud y los temas preferentes del ejercicio del poder por medio de quiénes ocupan el gobierno. ¿Se enfocan en un área de política concreta, como la seguridad o la política fiscal o son extensos? ¿Se necesita un decreto presidencial para comprar un bolígrafo o la arquitectura normativa del Estado resulta descentralizada y permite que tales decisiones se tomen de forma descentralizada? Los decretos ayudan a responder este tipo de preguntas, así como muchas otras acerca de grupos de poder, intereses y centralidad política.</p>
+</section><section id="corpus-paraguay" class="level3" data-number="10.5.3"><h3 data-number="10.5.3" class="anchored" data-anchor-id="corpus-paraguay">
+<span class="header-section-number">10.5.3</span> Corpus: Paraguay</h3>
+<p>El <em>data.frame</em> llamado <em>pry.decree</em> contiene una muestra con 1.000 decretos ejecutivos de Paraguay.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bonfim2004" class="csl-entry" role="listitem">
+Bonfim, Joao Bosco Bezerra. 2004. <em>Palavra de Presidente: Discursos de Posse de Deodoro a Lula</em>. Brasília: LGE Editora.
+</div>
+</div>
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./08_positio_politicas.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Posiciones sobre políticas públicas</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A02_preprocesa.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

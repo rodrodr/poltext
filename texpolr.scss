@@ -1,0 +1,64 @@
+
+/*-- scss:rules --*/
+
+img.quarto-cover-image {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+
+body {
+font-family: 'Times New Roman', serif;
+font-size: 20px;
+}
+
+blockquote {
+margin: 0 0 1rem;
+padding: 0 1rem;
+color: green;
+border-left: 4px solid green;
+}
+
+blockquote p {
+color: green;
+}
+
+.colGreen{
+color:green;
+}
+
+h3{
+color:#CD4F39;
+}
+
+.vectout{
+color:red;
+font-family: 'Times New Roman', serif;
+}
+
+h4{
+color:green;
+font-weight: bold;
+font-style: italic;
+}
+
+.tab-content {
+  background-color:#FFF3C9 ;
+}
+
+
+.react-table {
+  background-color:#FFF3C9 ;
+}
+
+
+.panel-tabset .nav-item .nav-link.active {
+  color: white;
+  background-color:purple;
+}
+
+
+.panel-tabset .nav-item .nav-link {
+  color: black;
+  background-color:#BDEC7F;
+  margin-left:5px;
+}

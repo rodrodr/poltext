@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Rodrigo Rodrigues-Silveira Área de Ciencia Política/ Instituto de Iberoamérica Universidad de Salamanca">
-
-<title>Análisis de textos políticos con R</title>
+<title>Análisis de textos políticos con R - 13&nbsp; Herramientas: visualización</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +17,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
-
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -31,7 +45,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./A05_paquetes_R.html" rel="next">
+<link href="./A03_dialogos_redes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,8 +55,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,35 +73,25 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="texpolr.scss">
+}</script><link rel="stylesheet" href="texpolr.scss">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefacio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A01_corpora.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A04_visualizacion.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Análisis de textos políticos con R</a> 
     </div>
@@ -99,9 +103,9 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
@@ -119,8 +123,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_explora_inductivo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploración inductiva</span></span></a>
@@ -145,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -154,8 +158,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_clasificacion_tematica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clasificación temática</span></span></a>
@@ -180,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -189,8 +193,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A01_corpora.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fuentes: Textos empleados</span></span></a>
@@ -210,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A04_visualizacion.html" class="sidebar-item-text sidebar-link">
+  <a href="./A04_visualizacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></span></a>
   </div>
 </li>
@@ -221,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -229,55 +233,143 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
-    <h2 id="toc-title">Contenido</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1"><h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#prefacio" id="toc-prefacio" class="nav-link active" data-scroll-target="#prefacio">Prefacio</a></li>
+<li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">13.1</span> Introducción</a></li>
+  <li><a href="#color-y-gr%C3%A1ficos" id="toc-color-y-gráficos" class="nav-link" data-scroll-target="#color-y-gr%C3%A1ficos"><span class="header-section-number">13.2</span> Color y gráficos</a></li>
+  <li>
+<a href="#tipos-de-gr%C3%A1fico" id="toc-tipos-de-gráfico" class="nav-link" data-scroll-target="#tipos-de-gr%C3%A1fico"><span class="header-section-number">13.3</span> Tipos de gráfico</a>
+  <ul>
+<li><a href="#flujo" id="toc-flujo" class="nav-link" data-scroll-target="#flujo"><span class="header-section-number">13.3.1</span> Flujo</a></li>
+  <li><a href="#jerarqu%C3%ADa" id="toc-jerarquía" class="nav-link" data-scroll-target="#jerarqu%C3%ADa"><span class="header-section-number">13.3.2</span> Jerarquía</a></li>
+  <li><a href="#proporci%C3%B3n" id="toc-proporción" class="nav-link" data-scroll-target="#proporci%C3%B3n"><span class="header-section-number">13.3.3</span> Proporción</a></li>
+  <li><a href="#etiquetado-o-localizaci%C3%B3n" id="toc-etiquetado-o-localización" class="nav-link" data-scroll-target="#etiquetado-o-localizaci%C3%B3n"><span class="header-section-number">13.3.4</span> Etiquetado o localización</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#principios-de-construcci%C3%B3n" id="toc-principios-de-construcción" class="nav-link" data-scroll-target="#principios-de-construcci%C3%B3n"><span class="header-section-number">13.4</span> Principios de construcción</a>
+  <ul>
+<li>
+<a href="#interactividad" id="toc-interactividad" class="nav-link" data-scroll-target="#interactividad"><span class="header-section-number">13.4.1</span> Interactividad</a>
+  <ul>
+<li><a href="#tablas" id="toc-tablas" class="nav-link" data-scroll-target="#tablas"><span class="header-section-number">13.4.1.1</span> Tablas</a></li>
+  <li><a href="#gr%C3%A1ficos" id="toc-gráficos" class="nav-link" data-scroll-target="#gr%C3%A1ficos"><span class="header-section-number">13.4.1.2</span> Gráficos</a></li>
+  </ul>
+</li>
+  <li><a href="#modularidad" id="toc-modularidad" class="nav-link" data-scroll-target="#modularidad"><span class="header-section-number">13.4.2</span> Modularidad</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Análisis de textos políticos con R</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span>
+</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><b>Rodrigo Rodrigues-Silveira</b><br>Área de Ciencia Política/<br>Instituto de Iberoamérica<br>Universidad de Salamanca </p>
-          </div>
-  </div>
     
   
     
   </div>
   
 
-</header>
+</header><p>(<em>work in progress</em>)</p>
+<section id="introducción" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="introducción">
+<span class="header-section-number">13.1</span> Introducción</h2>
+<p>Durante todo el trabajo, hemos explorado un conjunto bastante variado de formas de visualización de texto. Algunas tradicionales o consolidadas, como los árboles y las nubes de palabras. En otros casos, hemos experimentado con gráficos que suelen ser empleados en estudios cuantitativos o para otras aplicaciones. Además, hemos desarrollado algunos instrumentos que ayudan en la aprehensión de los patrones, la interacción o la reusabilidad de los resultados.</p>
+<p>En este apéndice, examinamos las herramientas empleadas para la visualización de datos textuales. En primer lugar, discutimos la teoría del color y su empleo en la visualización de datos. Segundo, describimos los diferentes tipos de gráfico empleados durante todo el libro y su utilización en la síntesis o representación gráfica de textos. Finalmente, listamos los principios de interactividad y modularidad empleados en la construcción de los gráficos del libro.</p>
+</section><section id="color-y-gráficos" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="color-y-gráficos">
+<span class="header-section-number">13.2</span> Color y gráficos</h2>
+<p>El primero consiste en suminist</p>
+<p>Hemos clasificado los colores de acuerdo con su tipología (secuencial, divergente o cualitativo) y la cantidad de colores (monocolor, multicolor)</p>
+</section><section id="tipos-de-gráfico" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="tipos-de-gráfico">
+<span class="header-section-number">13.3</span> Tipos de gráfico</h2>
+<section id="flujo" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="flujo">
+<span class="header-section-number">13.3.1</span> Flujo</h3>
+<ul>
+<li>Función:</li>
+</ul>
+<p>Representar cambios o transiciones de un estado o momento a otro. Sirven para visualizar el diálogo y la interacción entre ideas, textos, personajes o términos.</p>
+<ul>
+<li>Tipos empleados:</li>
+</ul>
+<p>Diagrama de Sankey Diagrama de cordas Sociogramas Wordtree Diagrama de arco</p>
+</section><section id="jerarquía" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="jerarquía">
+<span class="header-section-number">13.3.2</span> Jerarquía</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Permiten visualizar un orden o jerarquía entre valores. La codificación temática en muchas ocasiones opera a partir de una estructura jerárquica que va desde los términos empíricos concretos (palabras o frases) hasta temas de mayor nivel de abstracción. Las redes de interacción entre parlamentarios, por otra parte, revelan distintos protagonismos y actores más centrales en la configuración de los diferentes discursos político-partidarios.</p>
+<ul>
+<li>Tipos empleados:</li>
+</ul>
+<p>diagrama de cordas</p>
+<p>force directed tree</p>
+<p>Voronoi Tree</p>
+<p>Dendrograma de Cluster</p>
+</section><section id="proporción" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="proporción">
+<span class="header-section-number">13.3.3</span> Proporción</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Los gráficos de proporción, como su mismo nombre revela, señalan el peso relativo de un atributo -que puede ser un concepto, una palabra, un documento o un actor- en comparación con otros. Nos permite medir la intensidad y comparar las posiciones de las distintas unidades representadas.</p>
+<ul>
+<li>tipos empleados:</li>
+</ul>
+<p>Voronoi tree map</p>
+<p>Gráfico de barras</p>
+<p>Force Directed tree</p>
+<p>Solar plot</p>
+</section><section id="etiquetado-o-localización" class="level3" data-number="13.3.4"><h3 data-number="13.3.4" class="anchored" data-anchor-id="etiquetado-o-localización">
+<span class="header-section-number">13.3.4</span> Etiquetado o localización</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Este tipo de gráfico permite señalar en los textos dónde se encuentran ideas, palabras-clave o expresionnes de interés. Más aún, posibilitan clasificar las unidades de medida -que van desde una palabra única a frases, párrafos, capítulos hasta documentos enteros- según conceptos o temas generales. En ese sentido, facilitan la localización de ideas y su posterior reordenamiento y selección según los criterios de investigación deseados.</p>
+<ul>
+<li>tipos empleados:</li>
+</ul>
+<p>tagText</p>
+<p>tagCorpus</p>
+<p>dispersión léxica</p>
+</section></section><section id="principios-de-construcción" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="principios-de-construcción">
+<span class="header-section-number">13.4</span> Principios de construcción</h2>
+<section id="interactividad" class="level3" data-number="13.4.1"><h3 data-number="13.4.1" class="anchored" data-anchor-id="interactividad">
+<span class="header-section-number">13.4.1</span> Interactividad</h3>
+<p>Aunque no esté presente en todas las visualizaciones empleadas en el libro, la interactividad se ha utilizado de forma extensiva. Se trata de un recurso muy valioso a la hora de permitir a los usuarios explorar los detalles de la visualización, conocer mejor los datos y extraer nuevas ideas o encontrar otros patrones que, a un principio, se encontraban fuera de las intenciones iniciales del autor.</p>
+<section id="tablas" class="level4" data-number="13.4.1.1"><h4 data-number="13.4.1.1" class="anchored" data-anchor-id="tablas">
+<span class="header-section-number">13.4.1.1</span> Tablas</h4>
+<p>La casi totalidad de las tablas empleadas permite algún tipo de interactividad. En algunos casos, consiste en solamente reordenar los valores al hacer clic sobre el título de la columna. No obstante, en otros también se permite filtrar los valores, buscar o redimensionar las columnas. Para ello, se ha empleado el paquete de R <em>reactable</em> <span class="citation" data-cites="lin2023">(<a href="references.html#ref-lin2023" role="doc-biblioref">Lin 2023</a>)</span> que incorpora una serie de recursos para la creación de tablas interactivas en R.</p>
+</section><section id="gráficos" class="level4" data-number="13.4.1.2"><h4 data-number="13.4.1.2" class="anchored" data-anchor-id="gráficos">
+<span class="header-section-number">13.4.1.2</span> Gráficos</h4>
+<p>Hemos adaptado los gráficos de la biblioteca de gráficos en <em>JavaScript</em> Amcharts (amcharts.com). Representa un de las más variadas y sus gráficos son estéticamente atractivos y de fácil utilización. Entre los formatos utilizados, se destacan aquellos que representan redes y datos jerárquicos, como se puede constatar en los ejemplos empleados durante todo el trabajo.</p>
+</section></section><section id="modularidad" class="level3" data-number="13.4.2"><h3 data-number="13.4.2" class="anchored" data-anchor-id="modularidad">
+<span class="header-section-number">13.4.2</span> Modularidad</h3>
+<p>En otros gráficos, hemos puesto hincapié en desarrollar códigos que incorporaran la gramática de los gráficos <span class="citation" data-cites="wilkinson1999">(<a href="references.html#ref-wilkinson1999" role="doc-biblioref">Wilkinson 1999</a>)</span>. Consiste en una forma de creación de gráficos que permite la composición a partir de elementos básicos o modulares como los datos, las geometrías, el tema. El paquete de R <em>ggplot2</em> <span class="citation" data-cites="wickham2023">(<a href="references.html#ref-wickham2023" role="doc-biblioref">Wickham 2023</a>)</span> incorpora en su diseño este lenguaje visual y permite una enorme flexibilidad a la hora de crear visualizaciones potentes. Por esa razón, a los gráficos que hemos desarrollado en los ejemplos, se pueden añadir temas y otros elementos (textos, puntos, líneas, etc.). Esta característica permite reutilizarlos para diferentes textos, formatos, fuentes de información o propósitos (incluso más allá de la visualización de textos).</p>
 
 
-<section id="prefacio" class="level1 unnumbered">
-<h1 class="unnumbered">Prefacio</h1><p><img src="cover.png" title="Análisis de textos políticos con R" class="quarto-cover-image img-fluid"></p>
-<p>Aquí el prefacio del libro. Se trata de una breve introducción con el propósito, el público a que se destina y la descripción de la estructura.</p>
-
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-lin2023" class="csl-entry" role="listitem">
+Lin, Greg. 2023. <em>Reactable: Interactive Data Tables for r</em>. <a href="https://glin.github.io/reactable/authors.html#citation">https://glin.github.io/reactable/authors.html#citation</a>.
+</div>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley. 2023. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. 3rd ed. Berlin: Springer. <a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a>.
+</div>
+<div id="ref-wilkinson1999" class="csl-entry" role="listitem">
+Wilkinson, Leland. 1999. <em>The Grammar of Graphics</em>. New York: Springer.
+</div>
+</div>
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -509,13 +601,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./A03_dialogos_redes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./A05_paquetes_R.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Herramientas: paquetes de R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Análisis de textos políticos con R - 12&nbsp; Preprocesamiento: de diálogos a redes</title>
+<title>Análisis de textos políticos con R - 12&nbsp; Preprocesamiento: conversión a redes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./A04_visualizacion.html" rel="next">
 <link href="./A02_preprocesa.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A01_corpora.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A03_dialogos_redes.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A01_corpora.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A03_dialogos_redes.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,19 +178,31 @@ ul.task-list li input[type="checkbox"] {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A01_corpora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fuentes: Textos empleados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A02_preprocesa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento: Fundamentos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A03_dialogos_redes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A04_visualizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A05_paquetes_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Herramientas: paquetes de R</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
   <li>
 <a href="#preparaci%C3%B3n-anterior-de-los-textos" id="toc-preparación-anterior-de-los-textos" class="nav-link" data-scroll-target="#preparaci%C3%B3n-anterior-de-los-textos"><span class="header-section-number">12.3</span> Preparación anterior de los textos</a>
   <ul>
-<li><a href="#marcadores" id="toc-marcadores" class="nav-link" data-scroll-target="#marcadores"><span class="header-section-number">12.3.1</span> Marcadores</a></li>
+<li><a href="#inclusi%C3%B3n-de-marcadores" id="toc-inclusión-de-marcadores" class="nav-link" data-scroll-target="#inclusi%C3%B3n-de-marcadores"><span class="header-section-number">12.3.1</span> Inclusión de marcadores</a></li>
   </ul>
 </li>
   <li><a href="#conversi%C3%B3n-a-data.frame" id="toc-conversión-a-data.frame" class="nav-link" data-scroll-target="#conversi%C3%B3n-a-data.frame"><span class="header-section-number">12.4</span> Conversión a <em>data.frame</em></a></li>
@@ -224,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span>
+<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span>
 </h1>
 </div>
 
@@ -244,8 +256,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="header-section-number">12.2</span> La conectividad de los diálogos</h2>
 </section><section id="preparación-anterior-de-los-textos" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="preparación-anterior-de-los-textos">
 <span class="header-section-number">12.3</span> Preparación anterior de los textos</h2>
-<section id="marcadores" class="level3" data-number="12.3.1"><h3 data-number="12.3.1" class="anchored" data-anchor-id="marcadores">
-<span class="header-section-number">12.3.1</span> Marcadores</h3>
+<section id="inclusión-de-marcadores" class="level3" data-number="12.3.1"><h3 data-number="12.3.1" class="anchored" data-anchor-id="inclusión-de-marcadores">
+<span class="header-section-number">12.3.1</span> Inclusión de marcadores</h3>
 </section></section><section id="conversión-a-data.frame" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="conversión-a-data.frame">
 <span class="header-section-number">12.4</span> Conversión a <em>data.frame</em>
 </h2>
@@ -487,12 +499,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./A02_preprocesa.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento: Fundamentos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./A04_visualizacion.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -178,19 +178,31 @@ ul.task-list li input[type="checkbox"] {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A01_corpora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fuentes: Textos empleados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A02_preprocesa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento: Fundamentos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A03_dialogos_redes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A04_visualizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A05_paquetes_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Herramientas: paquetes de R</span></span></a>
   </div>
 </li>
       </ul>
@@ -210,14 +222,17 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
 <li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">8.1</span> Introducción</a></li>
-  <li><a href="#m%C3%A9todos-para-clasificar-textos-pol%C3%ADticos" id="toc-métodos-para-clasificar-textos-políticos" class="nav-link" data-scroll-target="#m%C3%A9todos-para-clasificar-textos-pol%C3%ADticos"><span class="header-section-number">8.2</span> Métodos para clasificar textos políticos</a></li>
-  <li><a href="#m%C3%A9todos-supervisados" id="toc-métodos-supervisados" class="nav-link" data-scroll-target="#m%C3%A9todos-supervisados"><span class="header-section-number">8.3</span> Métodos supervisados</a></li>
+  <li><a href="#c%C3%B3mo-medir-ideolog%C3%ADa-a-partir-de-textos" id="toc-cómo-medir-ideología-a-partir-de-textos" class="nav-link" data-scroll-target="#c%C3%B3mo-medir-ideolog%C3%ADa-a-partir-de-textos"><span class="header-section-number">8.2</span> ¿Cómo medir ideología a partir de textos?</a></li>
   <li>
-<a href="#m%C3%A9todos-no-supervisados" id="toc-métodos-no-supervisados" class="nav-link" data-scroll-target="#m%C3%A9todos-no-supervisados"><span class="header-section-number">8.4</span> Métodos no supervisados</a>
+<a href="#estrategias-emp%C3%ADricas" id="toc-estrategias-empíricas" class="nav-link" data-scroll-target="#estrategias-emp%C3%ADricas"><span class="header-section-number">8.3</span> Estrategias empíricas</a>
   <ul>
-<li><a href="#an%C3%A1lisis-de-cluster" id="toc-análisis-de-cluster" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-cluster"><span class="header-section-number">8.4.1</span> Análisis de cluster</a></li>
+<li><a href="#fuentes" id="toc-fuentes" class="nav-link" data-scroll-target="#fuentes"><span class="header-section-number">8.3.1</span> Fuentes</a></li>
+  <li><a href="#t%C3%A9cnicas" id="toc-técnicas" class="nav-link" data-scroll-target="#t%C3%A9cnicas"><span class="header-section-number">8.3.2</span> Técnicas</a></li>
   </ul>
 </li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">8.4</span> Resultados</a></li>
+  <li><a href="#comparaci%C3%B3n-con-otras-fuentes" id="toc-comparación-con-otras-fuentes" class="nav-link" data-scroll-target="#comparaci%C3%B3n-con-otras-fuentes"><span class="header-section-number">8.5</span> Comparación con otras fuentes</a></li>
+  <li><a href="#consideraciones-finales" id="toc-consideraciones-finales" class="nav-link" data-scroll-target="#consideraciones-finales"><span class="header-section-number">8.6</span> Consideraciones finales</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -240,17 +255,24 @@ ul.task-list li input[type="checkbox"] {
 </header><section id="introducción" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="introducción">
 <span class="header-section-number">8.1</span> Introducción</h2>
 <p>Introducción</p>
-</section><section id="métodos-para-clasificar-textos-políticos" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="métodos-para-clasificar-textos-políticos">
-<span class="header-section-number">8.2</span> Métodos para clasificar textos políticos</h2>
-</section><section id="métodos-supervisados" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="métodos-supervisados">
-<span class="header-section-number">8.3</span> Métodos supervisados</h2>
-</section><section id="métodos-no-supervisados" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="métodos-no-supervisados">
-<span class="header-section-number">8.4</span> Métodos no supervisados</h2>
-<section id="análisis-de-cluster" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="análisis-de-cluster">
-<span class="header-section-number">8.4.1</span> Análisis de cluster</h3>
+</section><section id="cómo-medir-ideología-a-partir-de-textos" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="cómo-medir-ideología-a-partir-de-textos">
+<span class="header-section-number">8.2</span> ¿Cómo medir ideología a partir de textos?</h2>
+</section><section id="estrategias-empíricas" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="estrategias-empíricas">
+<span class="header-section-number">8.3</span> Estrategias empíricas</h2>
+<section id="fuentes" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="fuentes">
+<span class="header-section-number">8.3.1</span> Fuentes</h3>
+</section><section id="técnicas" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="técnicas">
+<span class="header-section-number">8.3.2</span> Técnicas</h3>
+</section></section><section id="resultados" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="resultados">
+<span class="header-section-number">8.4</span> Resultados</h2>
+</section><section id="comparación-con-otras-fuentes" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="comparación-con-otras-fuentes">
+<span class="header-section-number">8.5</span> Comparación con otras fuentes</h2>
+<p>Comparación con encuestas con legisladores, expertos y otras fuentes como el <em>Manifesto Project</em></p>
+</section><section id="consideraciones-finales" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="consideraciones-finales">
+<span class="header-section-number">8.6</span> Consideraciones finales</h2>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

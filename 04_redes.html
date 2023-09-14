@@ -17,7 +17,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -178,19 +197,31 @@ ul.task-list li input[type="checkbox"] {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A01_corpora.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Corpora - Textos empleados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fuentes: Textos empleados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A02_preprocesa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento de textos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Preprocesamiento: Fundamentos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A03_dialogos_redes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: de diálogos a redes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Preprocesamiento: conversión a redes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A04_visualizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Herramientas: visualización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A05_paquetes_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Herramientas: paquetes de R</span></span></a>
   </div>
 </li>
       </ul>
@@ -211,8 +242,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
 <li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">5.1</span> Introducción</a></li>
   <li><a href="#an%C3%A1lisis-de-redes-sociales-aplicados-a-textos-pol%C3%ADticos" id="toc-análisis-de-redes-sociales-aplicados-a-textos-políticos" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-redes-sociales-aplicados-a-textos-pol%C3%ADticos"><span class="header-section-number">5.2</span> Análisis de redes sociales aplicados a textos políticos</a></li>
-  <li><a href="#ssss" id="toc-ssss" class="nav-link" data-scroll-target="#ssss"><span class="header-section-number">5.3</span> SSSS</a></li>
-  <li><a href="#ssss-1" id="toc-ssss-1" class="nav-link" data-scroll-target="#ssss-1"><span class="header-section-number">5.4</span> SSSS</a></li>
+  <li>
+<a href="#morfolog%C3%ADa-de-las-redes" id="toc-morfología-de-las-redes" class="nav-link" data-scroll-target="#morfolog%C3%ADa-de-las-redes"><span class="header-section-number">5.3</span> Morfología de las redes</a>
+  <ul>
+<li><a href="#unidades-b%C3%A1sicas" id="toc-unidades-básicas" class="nav-link" data-scroll-target="#unidades-b%C3%A1sicas"><span class="header-section-number">5.3.1</span> Unidades básicas</a></li>
+  <li><a href="#tipos-de-red" id="toc-tipos-de-red" class="nav-link" data-scroll-target="#tipos-de-red"><span class="header-section-number">5.3.2</span> Tipos de red</a></li>
+  <li><a href="#topolog%C3%ADa-de-redes" id="toc-topología-de-redes" class="nav-link" data-scroll-target="#topolog%C3%ADa-de-redes"><span class="header-section-number">5.3.3</span> Topología de redes</a></li>
+  <li><a href="#propiedades-generales" id="toc-propiedades-generales" class="nav-link" data-scroll-target="#propiedades-generales"><span class="header-section-number">5.3.4</span> Propiedades generales</a></li>
+  <li><a href="#propiedades-comparativas" id="toc-propiedades-comparativas" class="nav-link" data-scroll-target="#propiedades-comparativas"><span class="header-section-number">5.3.5</span> Propiedades comparativas</a></li>
+  </ul>
+</li>
+  <li><a href="#diagn%C3%B3stico-general" id="toc-diagnóstico-general" class="nav-link" data-scroll-target="#diagn%C3%B3stico-general"><span class="header-section-number">5.4</span> Diagnóstico general</a></li>
+  <li><a href="#an%C3%A1lisis-de-una-red-ego-c%C3%A9ntrica" id="toc-análisis-de-una-red-ego-céntrica" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-una-red-ego-c%C3%A9ntrica"><span class="header-section-number">5.5</span> Análisis de una red ego-céntrica</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -267,15 +308,67 @@ font-family: 'Times New Roman', serif;
 </div>
 <section id="introducción" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introducción">
 <span class="header-section-number">5.1</span> Introducción</h2>
+<p>¿Qué obtenemos al considerar los textos como un conjunto de redes?</p>
 <p>Introducción</p>
 </section><section id="análisis-de-redes-sociales-aplicados-a-textos-políticos" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="análisis-de-redes-sociales-aplicados-a-textos-políticos">
 <span class="header-section-number">5.2</span> Análisis de redes sociales aplicados a textos políticos</h2>
-</section><section id="ssss" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="ssss">
-<span class="header-section-number">5.3</span> SSSS</h2>
-</section><section id="ssss-1" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="ssss-1">
-<span class="header-section-number">5.4</span> SSSS</h2>
+<p>Teoría o manuales</p>
+<p><span class="citation" data-cites="wasserman1994">(<a href="references.html#ref-wasserman1994" role="doc-biblioref">Wasserman and Faust 1994</a>)</span></p>
+<p><span class="citation" data-cites="knoke1982">(<a href="references.html#ref-knoke1982" role="doc-biblioref">Knoke and Kuklinski 1982</a>)</span></p>
+<p><span class="citation" data-cites="scott1991 scott2012">(<a href="references.html#ref-scott1991" role="doc-biblioref">Scott 1991</a>, <a href="references.html#ref-scott2012" role="doc-biblioref">2012</a>)</span></p>
+<p><span class="citation" data-cites="crossley2015">(<a href="references.html#ref-crossley2015" role="doc-biblioref">Crossley et al. 2015</a>)</span></p>
+<p><span class="citation" data-cites="borgatti2018">(<a href="references.html#ref-borgatti2018" role="doc-biblioref">Borgatti, Everett, and Johnson 2018</a>)</span></p>
+<p>Redes políticas</p>
+<p><span class="citation" data-cites="yang2016 knoke1990">(<a href="references.html#ref-yang2016" role="doc-biblioref">Yang, Keller, and Zheng 2016</a>, cap. 8; <a href="references.html#ref-knoke1990" role="doc-biblioref">Knoke 1990</a>)</span></p>
+</section><section id="morfología-de-las-redes" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="morfología-de-las-redes">
+<span class="header-section-number">5.3</span> Morfología de las redes</h2>
+<section id="unidades-básicas" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="unidades-básicas">
+<span class="header-section-number">5.3.1</span> Unidades básicas</h3>
+<p>nodo, vértice, díada, tríada, clique, puente (<em>bridge</em>), motivo (<em>motif</em>), automorfismo y comunidades.</p>
+</section><section id="tipos-de-red" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="tipos-de-red">
+<span class="header-section-number">5.3.2</span> Tipos de red</h3>
+<p>Redes direccionales, no direccionales, ego-céntricas</p>
+</section><section id="topología-de-redes" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="topología-de-redes">
+<span class="header-section-number">5.3.3</span> Topología de redes</h3>
+<p>Análisis de la estructura de conectividad</p>
+</section><section id="propiedades-generales" class="level3" data-number="5.3.4"><h3 data-number="5.3.4" class="anchored" data-anchor-id="propiedades-generales">
+<span class="header-section-number">5.3.4</span> Propiedades generales</h3>
+<p>Conmutabilidad, densidad, transitividad, centralización, eccentricidad, asortividad, cohesión, diversidad, <em>coreness</em>, reciprocidad, modularidad…</p>
+</section><section id="propiedades-comparativas" class="level3" data-number="5.3.5"><h3 data-number="5.3.5" class="anchored" data-anchor-id="propiedades-comparativas">
+<span class="header-section-number">5.3.5</span> Propiedades comparativas</h3>
+<p>equivalencia estructural, conectividad, centralidad alfa, cocitación, distancia, camino más corto, vecinos, vecindario, similitud,</p>
+</section></section><section id="diagnóstico-general" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="diagnóstico-general">
+<span class="header-section-number">5.4</span> Diagnóstico general</h2>
+</section><section id="análisis-de-una-red-ego-céntrica" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="análisis-de-una-red-ego-céntrica">
+<span class="header-section-number">5.5</span> Análisis de una red ego-céntrica</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-borgatti2018" class="csl-entry" role="listitem">
+Borgatti, Stephen P., Martin G. Everett, and Jeffrey C. Johnson. 2018. <em>Analyzing Social Networks</em>. London: SAGE Publications.
+</div>
+<div id="ref-crossley2015" class="csl-entry" role="listitem">
+Crossley, Nick, Elisa Bellotti, Gemma Edwards, Martin G. Everett, Johan Koskinen, and Mark Tranmer. 2015. <em>Social Network Analysis for Ego-Nets: Social Network Analysis for Actor-Centred Networks</em>. Thousand Oaks, CA: SAGE.
+</div>
+<div id="ref-knoke1990" class="csl-entry" role="listitem">
+Knoke, David. 1990. <em>Political Networks</em>. Cambridge, MA: Cambridge University Press.
+</div>
+<div id="ref-knoke1982" class="csl-entry" role="listitem">
+Knoke, David, and James H. Kuklinski. 1982. <em>Network Analysis</em>. Vol. 28. London: Sage Publications.
+</div>
+<div id="ref-scott1991" class="csl-entry" role="listitem">
+Scott, John. 1991. <em>Social Network Analysis</em>. London: Sage Publications.
+</div>
+<div id="ref-scott2012" class="csl-entry" role="listitem">
+———. 2012. <em>What Is Social Network Analysis?</em> London: Bloomsbury Academic. <a href="https://library.oapen.org/handle/20.500.12657/58730">https://library.oapen.org/handle/20.500.12657/58730</a>.
+</div>
+<div id="ref-wasserman1994" class="csl-entry" role="listitem">
+Wasserman, Stanley, and Katherine Faust. 1994. <em>Social Network Analysis: Methods and Applications</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-yang2016" class="csl-entry" role="listitem">
+Yang, Song, Franziska B. Keller, and Lu Zheng. 2016. <em>Social Network Analysis: Methods and Examples</em>. Thousand Oaks, CA: SAGE Publications.
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -17,7 +17,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -108,13 +127,13 @@ ul.task-list li input[type="checkbox"] {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_explora_inductivo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploración inductiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeros pasos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_explora_deductivo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploración deductiva y abductiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Codificación temática</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -225,6 +244,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#etiquetado-de-partes-del-discurso-pos-tagging" id="toc-etiquetado-de-partes-del-discurso-pos-tagging" class="nav-link" data-scroll-target="#etiquetado-de-partes-del-discurso-pos-tagging"><span class="header-section-number">4.2</span> Etiquetado de partes del discurso (<em>POS Tagging</em>)</a></li>
   <li><a href="#an%C3%A1lisis-de-dependencias" id="toc-análisis-de-dependencias" class="nav-link" data-scroll-target="#an%C3%A1lisis-de-dependencias"><span class="header-section-number">4.3</span> Análisis de dependencias</a></li>
   <li><a href="#reconocimiento-de-nombres-y-entidades" id="toc-reconocimiento-de-nombres-y-entidades" class="nav-link" data-scroll-target="#reconocimiento-de-nombres-y-entidades"><span class="header-section-number">4.4</span> Reconocimiento de nombres y entidades</a></li>
+  <li><a href="#estudio-de-caso" id="toc-estudio-de-caso" class="nav-link" data-scroll-target="#estudio-de-caso"><span class="header-section-number">4.5</span> Estudio de caso</a></li>
+  <li><a href="#consideraciones-finales" id="toc-consideraciones-finales" class="nav-link" data-scroll-target="#consideraciones-finales"><span class="header-section-number">4.6</span> Consideraciones finales</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"><span class="header-section-number">4.7</span> Ejercicios</a></li>
+  <li><a href="#lecturas-adicionales" id="toc-lecturas-adicionales" class="nav-link" data-scroll-target="#lecturas-adicionales"><span class="header-section-number">4.8</span> Lecturas adicionales</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -246,15 +269,51 @@ ul.task-list li input[type="checkbox"] {
 
 </header><section id="introducción" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="introducción">
 <span class="header-section-number">4.1</span> Introducción</h2>
-<p>Introducción</p>
+<p>¿Qué adjetivos emplean los políticos para calificar el país, el gobierno o la oposición? ¿Qué verbos prefieren para expresar sus ideas? ¿Qué entidades, partidos o personas mencionan y cómo? Para responder a estas preguntas hace falta ir más allá de solo dividir los textos en palabras. Resulta necesario entender las palabras en su contexto o diferencias entre un nombre propio de un nombre común, un adjetivo de un verbo. El análisis sintáctico permite situar las palabras en su contexto y separar aquellas cuyo significado resulta particularmente útil para entender un discurso político o diferencias de peso entre visiones ideológicas distintas.</p>
+<p>El análisis sintáctico aplicado a la minería de textos se puede entender como el conjunto de técnicas que buscan, según reglas gramaticales, describir la estructura y función de las palabras en su contexto <span class="citation" data-cites="atkinson-abutridy2022">(<a href="references.html#ref-atkinson-abutridy2022" role="doc-biblioref">Atkinson-Abutridy 2022, 29</a>)</span>.</p>
 </section><section id="etiquetado-de-partes-del-discurso-pos-tagging" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="etiquetado-de-partes-del-discurso-pos-tagging">
 <span class="header-section-number">4.2</span> Etiquetado de partes del discurso (<em>POS Tagging</em>)</h2>
+<p>“POS tags are morpho-syntactic categories for words, such as nouns, verbs, articles and adjectives.” <span class="citation" data-cites="welbers2017">(<a href="references.html#ref-welbers2017" role="doc-biblioref">Welbers, Van Atteveldt, and Benoit 2017, 18</a>)</span></p>
+<p>“Parts of speech (POS) tagging is the task of assigning a grammatical tag to each word within a document, for example, tagging it as a verb, noun, preposition, or adjective.” <span class="citation" data-cites="grimmer2022a">(<a href="references.html#ref-grimmer2022a" role="doc-biblioref">Grimmer, Roberts, and Stewart 2022, 160</a>)</span></p>
+<p>“POS tagging is the annotation of the words with the right POS tags, based on the context in which they appear, POS taggers categorize words based on what they mean in a sentence or in the order they appear. POS taggers provide information about the semantic meaning of the word. POS taggers use some basic categories to tag different words — some basic tags are noun, verb, adjective, number and proper noun. POS tagging is also important for information extraction and sentiment analysis.” <span class="citation" data-cites="kumar2016">(<a href="references.html#ref-kumar2016" role="doc-biblioref">Kumar and Paul 2016, 70</a>)</span></p>
 </section><section id="análisis-de-dependencias" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="análisis-de-dependencias">
 <span class="header-section-number">4.3</span> Análisis de dependencias</h2>
+<p>“A dependency parser converts each sentence into a graph where each node represents a word, and the edges express grammatical dependency relations between the nodes.” <span class="citation" data-cites="vanatteveldt2017">(<a href="references.html#ref-vanatteveldt2017" role="doc-biblioref">Van Atteveldt et al. 2017, 210</a>)</span></p>
+<p>“Dependency parsing is the process of extracting a directed graph that explains the way words and phrases are syntactically connected to each other within a sentence (Jursfsky and Martin, 2009, Chapter 14). Dependency parsing identifies a root word (often the primary verb) and then describes the other words in relation to that word and to each other.” <span class="citation" data-cites="grimmer2022a">(<a href="references.html#ref-grimmer2022a" role="doc-biblioref">Grimmer, Roberts, and Stewart 2022, 166</a>)</span></p>
 </section><section id="reconocimiento-de-nombres-y-entidades" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="reconocimiento-de-nombres-y-entidades">
 <span class="header-section-number">4.4</span> Reconocimiento de nombres y entidades</h2>
+<p>“Named entity recognition is a technique for identifying whether a word or sequence of words represents an entity and what type of entity, such as a person or organization.” <span class="citation" data-cites="welbers2017">(<a href="references.html#ref-welbers2017" role="doc-biblioref">Welbers, Van Atteveldt, and Benoit 2017, 18</a>)</span></p>
+<p>“NER is the process of tagging people, organizations, and places within texts” <span class="citation" data-cites="grimmer2022a">(<a href="references.html#ref-grimmer2022a" role="doc-biblioref">Grimmer, Roberts, and Stewart 2022, 164</a>)</span></p>
+<p>“Named entity recognition helps identify the important entities in a text, to be able to derive the meaning from the unstructured data.” <span class="citation" data-cites="kumar2016">(<a href="references.html#ref-kumar2016" role="doc-biblioref">Kumar and Paul 2016, 199</a>)</span></p>
+<p>“Entity recognition is a sub process in the chain of information extraction process. NER is one of the important and vital parts of the information extraction process. NER is sometimes also called entity extraction or entity chunking .The main job of NER is to extract the rigid designators in the document and classify these elements in the text to a predefined category.” <span class="citation" data-cites="kumar2016">(<a href="references.html#ref-kumar2016" role="doc-biblioref">Kumar and Paul 2016, 200</a>)</span></p>
+</section><section id="estudio-de-caso" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="estudio-de-caso">
+<span class="header-section-number">4.5</span> Estudio de caso</h2>
+<p>Aplicación del método al análisis de un corpus concreto.</p>
+</section><section id="consideraciones-finales" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="consideraciones-finales">
+<span class="header-section-number">4.6</span> Consideraciones finales</h2>
+</section><section id="ejercicios" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="ejercicios">
+<span class="header-section-number">4.7</span> Ejercicios</h2>
+</section><section id="lecturas-adicionales" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="lecturas-adicionales">
+<span class="header-section-number">4.8</span> Lecturas adicionales</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-atkinson-abutridy2022" class="csl-entry" role="listitem">
+Atkinson-Abutridy, John. 2022. <em>Text Analytics: An Introduction to the Science and Applications of Unstructured Information Analysis</em>. Boca Raton: CRC Press.
+</div>
+<div id="ref-grimmer2022a" class="csl-entry" role="listitem">
+Grimmer, Justin, Margaret E. Roberts, and Brandon M. Stewart. 2022. <em>Text as Data: A New Framework for Machine Learning and the Social Sciences</em>. New Haven: Princeton University Press.
+</div>
+<div id="ref-kumar2016" class="csl-entry" role="listitem">
+Kumar, Ashish, and Avinash Paul. 2016. <em>Mastering Text Mining with r</em>. Birmingham: Packt Publishing.
+</div>
+<div id="ref-vanatteveldt2017" class="csl-entry" role="listitem">
+Van Atteveldt, Wouter, Tamir Sheafer, Shaul R. Shenhav, and Yair Fogel-Dror. 2017. <span>“Clause Analysis: Using Syntactic Information to Automatically Extract Source, Subject, and Predicate from Texts with an Application to the 2008<span></span>2009 Gaza War.”</span> <em>Political Analysis</em> 25 (2): 207222.
+</div>
+<div id="ref-welbers2017" class="csl-entry" role="listitem">
+Welbers, Kasper, Wouter Van Atteveldt, and Kenneth Benoit. 2017. <span>“Text Analysis in r.”</span> <em>Communication Methods and Measures</em> 11 (4): 245265.
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -489,7 +548,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./02_explora_deductivo.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exploración deductiva y abductiva</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Codificación temática</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

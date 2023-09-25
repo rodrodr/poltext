@@ -241,14 +241,13 @@ div.csl-indent {
    
   <ul>
 <li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n"><span class="header-section-number">13.1</span> Introducción</a></li>
-  <li><a href="#color-y-gr%C3%A1ficos" id="toc-color-y-gráficos" class="nav-link" data-scroll-target="#color-y-gr%C3%A1ficos"><span class="header-section-number">13.2</span> Color y gráficos</a></li>
+  <li><a href="#visualizar-textos-y-datos-derivados" id="toc-visualizar-textos-y-datos-derivados" class="nav-link" data-scroll-target="#visualizar-textos-y-datos-derivados"><span class="header-section-number">13.2</span> Visualizar textos y datos derivados</a></li>
   <li>
-<a href="#tipos-de-gr%C3%A1fico" id="toc-tipos-de-gráfico" class="nav-link" data-scroll-target="#tipos-de-gr%C3%A1fico"><span class="header-section-number">13.3</span> Tipos de gráfico</a>
+<a href="#color-y-gr%C3%A1ficos" id="toc-color-y-gráficos" class="nav-link" data-scroll-target="#color-y-gr%C3%A1ficos"><span class="header-section-number">13.3</span> Color y gráficos</a>
   <ul>
-<li><a href="#flujo" id="toc-flujo" class="nav-link" data-scroll-target="#flujo"><span class="header-section-number">13.3.1</span> Flujo</a></li>
-  <li><a href="#jerarqu%C3%ADa" id="toc-jerarquía" class="nav-link" data-scroll-target="#jerarqu%C3%ADa"><span class="header-section-number">13.3.2</span> Jerarquía</a></li>
-  <li><a href="#proporci%C3%B3n" id="toc-proporción" class="nav-link" data-scroll-target="#proporci%C3%B3n"><span class="header-section-number">13.3.3</span> Proporción</a></li>
-  <li><a href="#etiquetado-o-localizaci%C3%B3n" id="toc-etiquetado-o-localización" class="nav-link" data-scroll-target="#etiquetado-o-localizaci%C3%B3n"><span class="header-section-number">13.3.4</span> Etiquetado o localización</a></li>
+<li><a href="#paletas-de-color" id="toc-paletas-de-color" class="nav-link" data-scroll-target="#paletas-de-color"><span class="header-section-number">13.3.1</span> Paletas de color</a></li>
+  <li><a href="#tipos-de-paleta" id="toc-tipos-de-paleta" class="nav-link" data-scroll-target="#tipos-de-paleta"><span class="header-section-number">13.3.2</span> Tipos de paleta</a></li>
+  <li><a href="#las-paletas-empleadas" id="toc-las-paletas-empleadas" class="nav-link" data-scroll-target="#las-paletas-empleadas"><span class="header-section-number">13.3.3</span> Las paletas empleadas</a></li>
   </ul>
 </li>
   <li>
@@ -262,6 +261,15 @@ div.csl-indent {
   </ul>
 </li>
   <li><a href="#modularidad" id="toc-modularidad" class="nav-link" data-scroll-target="#modularidad"><span class="header-section-number">13.4.2</span> Modularidad</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#tipos-de-gr%C3%A1fico" id="toc-tipos-de-gráfico" class="nav-link" data-scroll-target="#tipos-de-gr%C3%A1fico"><span class="header-section-number">13.5</span> Tipos de gráfico</a>
+  <ul>
+<li><a href="#flujo" id="toc-flujo" class="nav-link" data-scroll-target="#flujo"><span class="header-section-number">13.5.1</span> Flujo</a></li>
+  <li><a href="#jerarqu%C3%ADa" id="toc-jerarquía" class="nav-link" data-scroll-target="#jerarqu%C3%ADa"><span class="header-section-number">13.5.2</span> Jerarquía</a></li>
+  <li><a href="#proporci%C3%B3n" id="toc-proporción" class="nav-link" data-scroll-target="#proporci%C3%B3n"><span class="header-section-number">13.5.3</span> Proporción</a></li>
+  <li><a href="#etiquetado-o-localizaci%C3%B3n" id="toc-etiquetado-o-localización" class="nav-link" data-scroll-target="#etiquetado-o-localizaci%C3%B3n"><span class="header-section-number">13.5.4</span> Etiquetado o localización</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -287,61 +295,38 @@ div.csl-indent {
 <section id="introducción" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="introducción">
 <span class="header-section-number">13.1</span> Introducción</h2>
 <p>Durante todo el trabajo, hemos explorado un conjunto bastante variado de formas de visualización de texto. Algunas tradicionales o consolidadas, como los árboles y las nubes de palabras. En otros casos, hemos experimentado con gráficos que suelen ser empleados en estudios cuantitativos o para otras aplicaciones. Además, hemos desarrollado algunos instrumentos que ayudan en la aprehensión de los patrones, la interacción o la reusabilidad de los resultados.</p>
-<p>En este apéndice, examinamos las herramientas empleadas para la visualización de datos textuales. En primer lugar, discutimos la teoría del color y su empleo en la visualización de datos. Segundo, describimos los diferentes tipos de gráfico empleados durante todo el libro y su utilización en la síntesis o representación gráfica de textos. Finalmente, listamos los principios de interactividad y modularidad empleados en la construcción de los gráficos del libro.</p>
-</section><section id="color-y-gráficos" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="color-y-gráficos">
-<span class="header-section-number">13.2</span> Color y gráficos</h2>
+<p>Naerland <span class="citation" data-cites="naerland2020">(<a href="references.html#ref-naerland2020" role="doc-biblioref">2020, 63</a>)</span> señala cuatro aspectos en los que la visualización de datos adquiere un peso político: como instrumento que facilita la deliberación pública, como ideología (o propaganda), como medio de intervención ciudadana (por ejemplo, proyectos de mapeo comunitario) y como herramienta de maniobra político-administrativa. No se trata, por lo tanto, de un instrumento pasivo o encerrado en el ambiente académico. El gráfico <em>warming stripes</em> representa un ejemplo claro. Su aspecto técnico no resulta para nada sofisticado. Se ha hecho con líneas verticales paralelas representando la variación anual de temperatura frente a la media de un período de referencia de 30 años y utilizando una paleta que va de azul (más frío) a rojo (más caliente). Muestra claramente que desde hace unas décadas, la temperatura de la tierra ha ido en aumento de forma inequívoca y constante. Su sencillez e impacto visual han sido cruciales para comunicar a la mayoría de los ciudadanos que sí hay cambio climático y desde cuándo.</p>
+<p>En este apéndice, examinamos las herramientas empleadas para la visualización de datos textuales. En primer lugar, hacemos la distinción entre visualizar los textos mismos y representar datos que han sido extraídos de los primeros. Segundo, presentamos los tipos de paleta de color y su empleo en la visualización de datos. Tercero, listamos los principios de interactividad y modularidad empleados en la construcción de los gráficos del libro. Finalmente, describimos los diferentes tipos de gráfico empleados durante todo el libro y su utilización en la síntesis o representación gráfica de textos.</p>
+</section><section id="visualizar-textos-y-datos-derivados" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="visualizar-textos-y-datos-derivados">
+<span class="header-section-number">13.2</span> Visualizar textos y datos derivados</h2>
+<p>Visualización de textos - el texto mismo permanece como base de la visualización. Podemos enriquecerlo con etiquetas y anotaciones, pero permanece como base de inspección.</p>
+<p>Visualización de datos a partir de textos - se generan una serie de datos cuantitativos a partir del procesamiento del corpus original y esto es lo que se visualiza.</p>
+<p>Parece una distinción trivial. No obstante, resulta crucial para distintas tareas de análisis. Investigadores con un enfoque más cualitativo preferirán disponer de herramientas que les permitan enriquecer los textos y poder volver a ellos desde una perspectiva distinta. Por otra parte, otros con un acercamiento más cuantitativo buscarán opciones que permitan sintetizar y representar de forma estadística la estructura o aspectos que consideran centrales en los documentos.</p>
+</section><section id="color-y-gráficos" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="color-y-gráficos">
+<span class="header-section-number">13.3</span> Color y gráficos</h2>
 <p>El primero consiste en suminist</p>
-<p>Hemos clasificado los colores de acuerdo con su tipología (secuencial, divergente o cualitativo) y la cantidad de colores (monocolor, multicolor)</p>
-</section><section id="tipos-de-gráfico" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="tipos-de-gráfico">
-<span class="header-section-number">13.3</span> Tipos de gráfico</h2>
-<section id="flujo" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="flujo">
-<span class="header-section-number">13.3.1</span> Flujo</h3>
+<section id="paletas-de-color" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="paletas-de-color">
+<span class="header-section-number">13.3.1</span> Paletas de color</h3>
+<p>Definición de paleta de color y por qué resultan importantes para obtener gráficos efectivos. <span class="citation" data-cites="brewer2003 harrower2003">(<a href="references.html#ref-brewer2003" role="doc-biblioref">Brewer, Hatchard, and Harrower 2003</a>; <a href="references.html#ref-harrower2003" role="doc-biblioref">Harrower and Brewer 2003</a>)</span></p>
+<p>Cartografía - Brewer desarrolla las paletas para tener en cuenta los posibles problemas de visualización en mapas. Su trabajo ha sido tan efectivo que, al final, logró resultados que van mucho más allá de la cartografía y que se extienden a la visualización de datos en general <span class="citation" data-cites="brewer2005 brewer2001">(<a href="references.html#ref-brewer2005" role="doc-biblioref">Brewer 2005</a>; <a href="references.html#ref-brewer2001" role="doc-biblioref">Brewer and Suchan 2001</a>)</span></p>
+</section><section id="tipos-de-paleta" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="tipos-de-paleta">
+<span class="header-section-number">13.3.2</span> Tipos de paleta</h3>
+<p>Existen tres tipos de paleta de color para la visualización de datos.</p>
 <ul>
-<li>Función:</li>
-</ul>
-<p>Representar cambios o transiciones de un estado o momento a otro. Sirven para visualizar el diálogo y la interacción entre ideas, textos, personajes o términos.</p>
-<ul>
-<li>Tipos empleados:</li>
-</ul>
-<p>Diagrama de Sankey Diagrama de cordas Sociogramas Wordtree Diagrama de arco</p>
-</section><section id="jerarquía" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="jerarquía">
-<span class="header-section-number">13.3.2</span> Jerarquía</h3>
-<ul>
-<li>función:</li>
-</ul>
-<p>Permiten visualizar un orden o jerarquía entre valores. La codificación temática en muchas ocasiones opera a partir de una estructura jerárquica que va desde los términos empíricos concretos (palabras o frases) hasta temas de mayor nivel de abstracción. Las redes de interacción entre parlamentarios, por otra parte, revelan distintos protagonismos y actores más centrales en la configuración de los diferentes discursos político-partidarios.</p>
-<ul>
-<li>Tipos empleados:</li>
-</ul>
-<p>diagrama de cordas</p>
-<p>force directed tree</p>
-<p>Voronoi Tree</p>
-<p>Dendrograma de Cluster</p>
-</section><section id="proporción" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="proporción">
-<span class="header-section-number">13.3.3</span> Proporción</h3>
-<ul>
-<li>función:</li>
-</ul>
-<p>Los gráficos de proporción, como su mismo nombre revela, señalan el peso relativo de un atributo -que puede ser un concepto, una palabra, un documento o un actor- en comparación con otros. Nos permite medir la intensidad y comparar las posiciones de las distintas unidades representadas.</p>
-<ul>
-<li>tipos empleados:</li>
-</ul>
-<p>Voronoi tree map</p>
-<p>Gráfico de barras</p>
-<p>Force Directed tree</p>
-<p>Solar plot</p>
-</section><section id="etiquetado-o-localización" class="level3" data-number="13.3.4"><h3 data-number="13.3.4" class="anchored" data-anchor-id="etiquetado-o-localización">
-<span class="header-section-number">13.3.4</span> Etiquetado o localización</h3>
-<ul>
-<li>función:</li>
-</ul>
-<p>Este tipo de gráfico permite señalar en los textos dónde se encuentran ideas, palabras-clave o expresionnes de interés. Más aún, posibilitan clasificar las unidades de medida -que van desde una palabra única a frases, párrafos, capítulos hasta documentos enteros- según conceptos o temas generales. En ese sentido, facilitan la localización de ideas y su posterior reordenamiento y selección según los criterios de investigación deseados.</p>
-<ul>
-<li>tipos empleados:</li>
-</ul>
-<p>tagText</p>
-<p>tagCorpus</p>
-<p>dispersión léxica</p>
+<li><p><strong>secuencial -</strong> corresponde a paletas que incluyen gradaciones de un mismo color o de colores complementarios que sugieren o representan cambios de intensidad o proporción. Ejemplo: porcentaje de votos.</p></li>
+<li><p><strong>divergente -</strong> se emplean cuando existe un punto medio desde el que los valores se distancias. En general se emplean dos o tres colores, siendo dos complementarias -para los extremos- y una intermedia que indica el centro. Ejemplo: escala ideológica, de nacionalismo o populismo.</p></li>
+<li><p><strong>cualitativa -</strong> se utilizan colores contrastantes (complementarios) para indicar diferentes cualidades o categorías. Ejemplo: partidos o regiones.</p></li>
+</ul></section><section id="las-paletas-empleadas" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="las-paletas-empleadas">
+<span class="header-section-number">13.3.3</span> Las paletas empleadas</h3>
+<p>Existe un oferta enorme de paletas de color en R. Hemos seleccionado aquí algunas basadas en paquetes</p>
+<p>https://github.com/EmilHvitfeldt/r-color-palettes</p>
+<p>RColorBrewer</p>
+<p>wesanderson</p>
+<p>ghigli</p>
+<p>lisa</p>
+<p>MetBrewer</p>
+<p>rtist</p>
+<p>Hemos clasificado los colores de acuerdo con su tipología (secuencial, divergente o cualitativo)</p>
 </section></section><section id="principios-de-construcción" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="principios-de-construcción">
 <span class="header-section-number">13.4</span> Principios de construcción</h2>
 <section id="interactividad" class="level3" data-number="13.4.1"><h3 data-number="13.4.1" class="anchored" data-anchor-id="interactividad">
@@ -356,11 +341,83 @@ div.csl-indent {
 </section></section><section id="modularidad" class="level3" data-number="13.4.2"><h3 data-number="13.4.2" class="anchored" data-anchor-id="modularidad">
 <span class="header-section-number">13.4.2</span> Modularidad</h3>
 <p>En otros gráficos, hemos puesto hincapié en desarrollar códigos que incorporaran la gramática de los gráficos <span class="citation" data-cites="wilkinson1999">(<a href="references.html#ref-wilkinson1999" role="doc-biblioref">Wilkinson 1999</a>)</span>. Consiste en una forma de creación de gráficos que permite la composición a partir de elementos básicos o modulares como los datos, las geometrías, el tema. El paquete de R <em>ggplot2</em> <span class="citation" data-cites="wickham2023">(<a href="references.html#ref-wickham2023" role="doc-biblioref">Wickham 2023</a>)</span> incorpora en su diseño este lenguaje visual y permite una enorme flexibilidad a la hora de crear visualizaciones potentes. Por esa razón, a los gráficos que hemos desarrollado en los ejemplos, se pueden añadir temas y otros elementos (textos, puntos, líneas, etc.). Esta característica permite reutilizarlos para diferentes textos, formatos, fuentes de información o propósitos (incluso más allá de la visualización de textos).</p>
+</section></section><section id="tipos-de-gráfico" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="tipos-de-gráfico">
+<span class="header-section-number">13.5</span> Tipos de gráfico</h2>
+<p>(<em>quizás aquí crear un diagrama de árbol como el de data-to-viz</em>)</p>
+<section id="flujo" class="level3" data-number="13.5.1"><h3 data-number="13.5.1" class="anchored" data-anchor-id="flujo">
+<span class="header-section-number">13.5.1</span> Flujo</h3>
+<ul>
+<li>Función:</li>
+</ul>
+<p>Representar cambios o transiciones de un estado o momento a otro. Sirven para visualizar el diálogo y la interacción entre ideas, textos, personajes o términos.</p>
+<ul>
+<li>Tipos empleados:</li>
+</ul>
+<p>Diagrama de Sankey</p>
+<p>Diagrama de cordas</p>
+<p>Sociogramas</p>
+<p>Wordtree</p>
+<p>Diagrama de arco</p>
+<p>streamChart</p>
+</section><section id="jerarquía" class="level3" data-number="13.5.2"><h3 data-number="13.5.2" class="anchored" data-anchor-id="jerarquía">
+<span class="header-section-number">13.5.2</span> Jerarquía</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Permiten visualizar un orden o jerarquía entre valores. La codificación temática en muchas ocasiones opera a partir de una estructura jerárquica que va desde los términos empíricos concretos (palabras o frases) hasta temas de mayor nivel de abstracción. Las redes de interacción entre parlamentarios, por otra parte, revelan distintos protagonismos y actores más centrales en la configuración de los diferentes discursos político-partidarios.</p>
+<ul>
+<li>Tipos empleados:</li>
+</ul>
+<p>diagrama de cordas</p>
+<p>force directed tree</p>
+<p>Voronoi Tree</p>
+<p>Dendrograma de Cluster</p>
+</section><section id="proporción" class="level3" data-number="13.5.3"><h3 data-number="13.5.3" class="anchored" data-anchor-id="proporción">
+<span class="header-section-number">13.5.3</span> Proporción</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Los gráficos de proporción, como su mismo nombre revela, señalan el peso relativo de un atributo -que puede ser un concepto, una palabra, un documento o un actor- en comparación con otros. Nos permite medir la intensidad y comparar las posiciones de las distintas unidades representadas.</p>
+<ul>
+<li>tipos empleados:</li>
+</ul>
+<p>Voronoi tree map</p>
+<p>Gráfico de barras</p>
+<p>Force Directed tree</p>
+<p>streamChart</p>
+<p>Solar plot</p>
+</section><section id="etiquetado-o-localización" class="level3" data-number="13.5.4"><h3 data-number="13.5.4" class="anchored" data-anchor-id="etiquetado-o-localización">
+<span class="header-section-number">13.5.4</span> Etiquetado o localización</h3>
+<ul>
+<li>función:</li>
+</ul>
+<p>Este tipo de gráfico permite señalar en los textos dónde se encuentran ideas, palabras-clave o expresionnes de interés. Más aún, posibilitan clasificar las unidades de medida -que van desde una palabra única a frases, párrafos, capítulos hasta documentos enteros- según conceptos o temas generales. En ese sentido, facilitan la localización de ideas y su posterior reordenamiento y selección según los criterios de investigación deseados.</p>
+<ul>
+<li>tipos empleados:</li>
+</ul>
+<p>tagText</p>
+<p>tagCorpus</p>
+<p>dispersión léxica</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-brewer2005" class="csl-entry" role="listitem">
+Brewer, Cynthia. 2005. <em>Desiging Better Maps: A Guide for GIS Users</em>. New York: ESRI Press.
+</div>
+<div id="ref-brewer2003" class="csl-entry" role="listitem">
+Brewer, Cynthia, Geoffrey W. Hatchard, and Mark Harrower. 2003. <span>“ColorBrewer in Print: A Catalog of Color Schemes for Maps.”</span> <em>Cartography and Geographic Information Science</em> 50 (1): 5–32.
+</div>
+<div id="ref-brewer2001" class="csl-entry" role="listitem">
+Brewer, Cynthia, and Trudy Suchan. 2001. <em>Mapping Census 2000: The Geography of u.s. Diversity</em>. Redlands, CA: ESRI Press.
+</div>
+<div id="ref-harrower2003" class="csl-entry" role="listitem">
+Harrower, Mark, and Cynthia Brewer. 2003. <span>“ColorBrewer.org: An Online Tool for Selecting Colour Schemes for Maps.”</span> <em>The Cartographic Journal</em> 40 (1): 27–37.
+</div>
 <div id="ref-lin2023" class="csl-entry" role="listitem">
 Lin, Greg. 2023. <em>Reactable: Interactive Data Tables for r</em>. <a href="https://glin.github.io/reactable/authors.html#citation">https://glin.github.io/reactable/authors.html#citation</a>.
+</div>
+<div id="ref-naerland2020" class="csl-entry" role="listitem">
+Naerland, Torgeir Uberg. 2020. <span>“The Political Significance of Data Visualization: Four Key Perspectives.”</span> In <em>Data Visualization in Society</em>, 63–73. Amsterdam: Amsterdam University Press.
 </div>
 <div id="ref-wickham2023" class="csl-entry" role="listitem">
 Wickham, Hadley. 2023. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. 3rd ed. Berlin: Springer. <a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a>.
